@@ -10,7 +10,7 @@ el proyecto lo creamos con el servidor WAMPSERVER
 # cuenta con la funcionabilidad de
 
 * login y registro de perfil
-* complemnento de perfil
+* complemento de perfil
 
 # instalacion
 
