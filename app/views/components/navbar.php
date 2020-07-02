@@ -21,12 +21,12 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dennis
+                        <?php echo ucwords($_SESSION['usuario']) ?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Perfil</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">cerrar sesion</a>
+                        <a class="dropdown-item" href="<?php echo RUTA_PROJECT?>/home/logout">cerrar sesion</a>
                     </div>
                 </li>
             </ul>

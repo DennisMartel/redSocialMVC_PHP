@@ -1,49 +1,37 @@
 <?php require_once RUTA_APP . '/views/components/header.php'; ?>
-<?php require_once RUTA_APP . '/views/components/mainNavbar.php'; ?>
 
-<div class="container">
-    <div class="row">
-        <div class="col-6">
-            <img src="<?php echo RUTA_PROJECT ?>/img/imagenLogin.jpg" alt="" style="width: 100%; height: 100%;">
-        </div>
-        <div class="col-6">
-            <div class="card mt-sm-2">
-                <div class="card-header">
-                    Registrate Gratis Aquí
-                </div>
-                <div class="container">
-                    <form class="mt-sm-2 mb-sm-2" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col">
-                                <input type="text" class="form-control" placeholder="nombre">
-                                </div>
-                                <div class="col">
-                                <input type="text" class="form-control" placeholder="apellido">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="email">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" placeholder="contraseña">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" placeholder="confirmar">
-                        </div>
-                        <div class="form-group">
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-success btn-block">Registrarme</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <hr>
-    <p class="text-muted text-center">creado por <a href="https://github.com/dennismartel" class="nav-link" target="_blank">Dennis Alexander Martel</a></p>
+<div class="contenedor">
+    <img src="<?php echo RUTA_PROJECT?>/img/bg.svg" alt="imagen del login" class="imagen-login">
+    <form action="<?php echo RUTA_PROJECT?>/home/login" method="post" class="main-form">
+        <h4 class="main-form__title">iniciar sesion</h4>
+        <input type="text" name="usuario" id="usuario" class="main-form__input" placeholder="usuario" required>
+        <input type="password" name="contrasena" id="contrasena" class="main-form__input" placeholder="contraseña" required>
+        <p class="main-form__paragraph">no tengo cuenta 
+            <a href="<?php echo RUTA_PROJECT?>/home/register" class="main-form__link">registrarme</a>
+        </p>
+        <button class="main-form__submit">iniciar sesion</button>
+        <?php 
+            //alerta si hay error al loguearse
+            if(isset($_SESSION['errorLogin'])) {
+                echo '<div class="alert alert-danger alert-dismissible fade show mt-sm-2" role="alert">
+                        '. $_SESSION['errorLogin'] .'
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>';
+            } unset($_SESSION['errorLogin']);
+
+            //alerta de registro exitoso
+            if(isset($_SESSION['registroCompleto'])) {
+                echo '<div class="alert alert-success alert-dismissible fade show mt-sm-2" role="alert">
+                        '. $_SESSION['registroCompleto'] .'
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>';
+            } unset($_SESSION['registroCompleto']);
+        ?>
+    </form>
 </div>
+
 <?php require_once RUTA_APP . '/views/components/footer.php'; ?>
