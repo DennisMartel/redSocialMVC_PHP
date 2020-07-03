@@ -7,6 +7,11 @@ el proyecto lo creamos con el servidor WAMPSERVER
 
 # descricion
 
+Crea una cuenta y disfruta con tus amigos chateando 
+conoce nuevas personas interactúa y diviertete crea publicaciones
+y reacciona dando likes y recibe notificaciones
+Destacadas
+
 # cuenta con la funcionabilidad de
 
 * login y registro de usuarios
