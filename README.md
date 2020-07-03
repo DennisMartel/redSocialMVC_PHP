@@ -23,4 +23,5 @@ descarga o clona el proyecto si lo has descargado descomprimelo y
 colocalo en la carpeta de tu servidor y accede a la siguiente ruta localhost/redsocial/home
 
 # imágenes del proyecto
-**próximamente**
+![imagen-login]capturasProyecto/imagen-login.png
+![imagen-login]capturasProyecto/imagen-registro.png
