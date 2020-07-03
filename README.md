@@ -21,3 +21,6 @@ destacadas además puedes **buscar** algun usuario en específico
 
 descarga o clona el proyecto si lo has descargado descomprimelo y 
 colocalo en la carpeta de tu servidor y accede a la siguiente ruta localhost/redsocial/home
+
+# imágenes del proyecto
+**próximamente**
