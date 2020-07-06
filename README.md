@@ -30,3 +30,8 @@ colocalo en la carpeta de tu servidor y accede a la siguiente ruta localhost/red
 
 **imagen del registro**
 ![imagen-login](capturasProyecto/imagen-registro.png)
+
+**imagenes de la pantalla principal**
+![imagen-login](capturasProyecto/main-uno.png)
+![imagen-login](capturasProyecto/main-dos.png)
+
