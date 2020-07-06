@@ -17,10 +17,16 @@ destacadas además puedes **buscar** algun usuario en específico
 * login y registro de usuarios
 * complemento de perfil
 
+**mas funcionabilidad próximamente**
+
 # instalacion
 
 descarga o clona el proyecto si lo has descargado descomprimelo y 
 colocalo en la carpeta de tu servidor y accede a la siguiente ruta localhost/redsocial/home
 
 # imágenes del proyecto
-**próximamente**
+**imagen del login**
+![imagen-login](capturasProyecto/imagen-login.png)
+
+**imagen del registro**
+![imagen-login](capturasProyecto/imagen-registro.png)
