@@ -1,0 +1,221 @@
+:root {
+    --var-bg-color: rgb(113, 75, 153);
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--var-bg-color);
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.profile-card__background {
+    width: 100%;
+    height: 120px;
+    background-color: var(--var-bg-color);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.profile-card__imagen-center {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-card__imagen {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    border-radius: 50%;
+    top: 65px;
+}
+
+.profile-card__separation {
+    width: 100%;
+    height: 30px;
+}
+
+.profile-card__name {
+    margin-top: 50px;
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--var-bg-color);
+    text-align: center;
+}
+
+.profile-cards__stadistics {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.profile-cards__stadistics-link {
+    color: var(--var-bg-color);
+    font-weight: bold;
+}
+
+.card-publicar {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 1px solid var(--var-bg-color);
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.card-publicar__form-publicacion {
+    padding: 10px;
+}
+
+.card-publicar__pensamiento {
+    width: 100%;
+    resize: none;
+    height: 100px;
+    border-radius: 10px;
+    outline: none;
+    padding: 5px;
+    border: 1px solid var(--var-bg-color);
+}
+
+.card-publicar__upload-image {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.card-publicar__icon {
+    font-size: 30px;
+    color: var(--var-bg-color);
+}
+
+.card-publicar__submit {
+    background-color: var(--var-bg-color);
+    color: whitesmoke;
+    border-radius: 10px;
+    padding: 5px;
+    outline: none;
+    border: none;
+}
+
+.main-section {
+    background-color: white;
+    border: 1px solid var(--var-bg-color);
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 5px;
+    
+}
+
+.main-publicaciones{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    color: whitesmoke;
+    background-color: var(--var-bg-color);
+    border-radius: 10px;
+    padding: 20px;
+    
+}
+
+.main-publicaciones__foto-perfil {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.main-publicaciones__otros {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.main-publicaciones__descripcion-publicacion {
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.main-publicaciones__img-publicacion {
+    border-radius: 10px;
+    border: 1px solid var(--var-bg-color);
+    width: 400px;
+    height: 320px;
+}
+
+.main-publicaciones__btn-like {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.main-publicaciones__link {
+    display: inline-block;
+    color: var(--var-bg-color);
+}
+
+.main-publicaciones__comentar {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.main-publicaciones__form-comentar {
+    padding: 8px;
+}
+
+.main-publicacion__comentar {
+    width: 100%;
+    resize: none;
+    height: 100px;
+    border-radius: 10px;
+    outline: none;
+    padding: 5px;
+    border: 1px solid var(--var-bg-color);
+}
+
+.main-publicacion__btn-comentar {
+    background-color: var(--var-bg-color);
+    color: whitesmoke;
+    border-radius: 10px;
+    padding: 5px;
+    outline: none;
+    border: none;
+}
+
+.main-publicaciones__mis-comentarios {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.main_publicaciones__foto-pertenece {
+    width: 50px;
+    height: 50px;
+    border-radius:50%;
+    margin-right: 20px;
+}
+
+.main-publicaciones__nombre-pertenece {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.main_publicaciones__comentario-pertenece {
+    font-weight: bold;
+    font-size: 12px;
+}
