@@ -16,6 +16,7 @@ destacadas además puedes **buscar** algun usuario en específico
 
 * login y registro de usuarios
 * complemento de perfil
+* crea y elimina publicaciones
 
 **mas funcionabilidad próximamente**
 
