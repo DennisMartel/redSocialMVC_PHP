@@ -4,6 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-xl-4 col-l-4 col-md-12 col-sm-12 mt-3">
+            <!-- profile column -->
             <div class="profile-card">
                 <div class="profile-card__background">
                     <div class="profile-card__imagen-center">
@@ -21,25 +22,31 @@
             </div>
         </div>
         <div class="col-xl-8 col-l-8 col-md-12 col-sm-12 mt-3">
+        <!-- main column -->
             <div class="card-publicar">
-                <form action="" method="post" class="card-publicar__form-publicacion">
-                    <textarea name="descripcion" class="card-publicar__pensamiento" placeholder="¿Ques estas pensando?"></textarea>
+                <form action="<?php echo RUTA_PROJECT?>/publicacion/publicar" method="POST" class="card-publicar__form-publicacion" enctype="multipart/form-data">
+                    <input type="hidden" name="idUsuario" value="<?php echo $_SESSION['logueado']?>">
+                    <textarea name="descripcion" class="card-publicar__pensamiento" placeholder="¿Ques estas pensando?" required></textarea>
                     <div class="card-publicar__upload-image">
                         <i class="fa fa-image card-publicar__icon"></i>
-                        <input type="file" name="" id="" class="card-publicar__upload-input">
+                        <input type="file" name="foto" class="card-publicar__upload-input" required>
                         <button type="submit" class="card-publicar__submit">publicar</button>
                     </div>
                 </form>
             </div>
-            <section class="main-section">
+            <?php foreach($data['publicaciones'] as $datosPublicacion) :?>
+                <section class="main-section">
                 <div class="main-publicaciones">
-                    <img src="<?php echo RUTA_PROJECT . '/' . $data['perfil']->fotoPerfil?>" alt="" class="main-publicaciones__foto-perfil">
-                    <h4 class="main-publicaciones__nombre-perfil"><?php echo $data['perfil']->nombreCompleto ?></h4>
-                    <p class="main-publicaciones__fecha-publicacion"><?php echo date('y/m/d'); ?></p>
+                    <img src="<?php echo RUTA_PROJECT . '/' . $datosPublicacion->fotoPerfil?>" alt="" class="main-publicaciones__foto-perfil">
+                    <h4 class="main-publicaciones__nombre-perfil"><?php echo $datosPublicacion->nombreCompleto ?></h4>
+                    <p class="main-publicaciones__fecha-publicacion"><?php echo $datosPublicacion->registrado?></p>
+                    <?php if($datosPublicacion->idUsuario == $_SESSION['logueado']):?>
+                        <a href="<?php echo RUTA_PROJECT?>/publicacion/eliminarPublicacion/<?php echo $datosPublicacion->idPublicacion?>" class="btn btn-success"><i class="fa fa-trash"></i></a>
+                    <?php endif;?>
                 </div>
                 <div class="main-publicaciones__otros">
-                        <h6 class="main-publicaciones__descripcion-publicacion">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae aliquam aperiam quos quia iste quod laboriosam, magni ipsam dignissimos cum? Et numquam quis fuga, ullam rerum sequi architecto reiciendis inventore.</h6>
-                        <img src="<?php echo RUTA_PROJECT?>/img/imagenLogin.jpg" alt="" class="main-publicaciones__img-publicacion">
+                        <h6 class="main-publicaciones__descripcion-publicacion"><?php echo $datosPublicacion->descripcion?></h6>
+                        <img src="<?php echo RUTA_PROJECT . '/' . $datosPublicacion->foto?>" alt="" class="main-publicaciones__img-publicacion">
                     </div>
                     <div class="main-publicaciones__btn-like">
                         <a href="" class="main-publicaciones__link nav-link"><i class="fa fa-heart-o"></i> me gusta <span>0</span></a>
@@ -66,6 +73,7 @@
                         </div>
                     </div>
             </section>
+            <?php endforeach;?>
         </div>
     </div>
 </div>

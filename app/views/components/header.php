@@ -12,6 +12,6 @@
 
     <!-- mis estilos -->
     <link rel="stylesheet" href="<?php echo RUTA_PROJECT?>/css/style.css">
-    <link rel="stylesheet" href="<?php echo RUTA_PROJECT?>/css/main.css">
+    <link rel="stylesheet" href="<?php echo RUTA_PROJECT?>/css/home.css">
 </head>
 <body>
