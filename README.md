@@ -29,4 +29,9 @@ colocalo en la carpeta de tu servidor y accede a la siguiente ruta localhost/red
 ![imagen-login](capturasProyecto/imagen-login.png)
 
 **imagen del registro**
-![imagen-login](capturasProyecto/imagen-registro.png)
+![imagen-registro](capturasProyecto/imagen-registro.png)
+
+**imagenes de la pantalla principal**
+![imagen-main-uno](capturasProyecto/main-uno.png)
+![imagen-main-dos](capturasProyecto/main-dos.png)
+
