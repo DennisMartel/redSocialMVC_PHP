@@ -14,11 +14,14 @@ destacadas además puedes **buscar** algun usuario en específico
 
 # cuenta con la funcionabilidad de
 
-* login y registro de usuarios
-* complemento de perfil
-* crea y elimina publicaciones
-
-**mas funcionabilidad próximamente**
+* sistema de login y registro de usuarios
+* sistema de perfiles de usuarios
+* sistema de publicaciones
+* sistema de comentarios
+* sistema de likes
+* sistema de notificaciones
+* sistema de mensajería
+* sistema de búsqueda de usuarios
 
 # instalacion
 
