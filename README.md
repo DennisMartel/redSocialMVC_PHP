@@ -28,7 +28,9 @@ destacadas además puedes **buscar** algun usuario en específico
 # instalacion
 
 descarga o clona el proyecto
-**si lo deseas clonar usa el siguiente comando desde tu git bash**
+
+**si lo deseas clonar usa el siguiente comando desde tu git bash aseguraré de colocarte 
+en la carpeta de tu servidor local**
 ```
 git clone https://github.com/DennisMartel/RedSocial
 ```
