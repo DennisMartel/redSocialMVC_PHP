@@ -29,11 +29,15 @@ destacadas además puedes **buscar** algun usuario en específico
 
 descarga o clona el proyecto
 
-**si lo deseas clonar usa el siguiente comando desde tu git bash aseguraré de colocarte 
-en la carpeta de tu servidor local**
+si lo deseas clonar usa el siguiente comando desde tu git bash asegurate de colocarte 
+en la carpeta de tu servidor local
 ```
 git clone https://github.com/DennisMartel/RedSocial
 ```
+
+Una vez clonado accede desde tu navegador
+
+**localhost/redsocial/home**
 
 si lo has descargado descomprimelo y 
 colocalo en la carpeta de tu servidor y accede a la siguiente ruta localhost/redsocial/home
