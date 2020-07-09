@@ -27,7 +27,13 @@ destacadas además puedes **buscar** algun usuario en específico
 
 # instalacion
 
-descarga o clona el proyecto si lo has descargado descomprimelo y 
+descarga o clona el proyecto
+**si lo deseas clonar usa el siguiente comando desde tu git bash**
+```
+git clone https://github.com/DennisMartel/RedSocial
+```
+
+si lo has descargado descomprimelo y 
 colocalo en la carpeta de tu servidor y accede a la siguiente ruta localhost/redsocial/home
 
 # imágenes del proyecto
