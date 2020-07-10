@@ -38,9 +38,32 @@ class Publicacion extends Controller
         $datosPublicacion = $this->publicar->getPublicacion($idPublicacion);
         
         if($this->publicar->deletePublicacion($datosPublicacion)) {
+            unlink('C:/wamp64/www/redsocial/public/img/imgPublicacion/' . $datosPublicacion->foto);
             redirect('/home');
         } else {
             echo 'algo salio mal';
+        }
+    }
+
+    public function megusta($idUsuario, $idPublicacion)
+    {
+        $datos = [
+            'idUsuario' => $idUsuario,
+            'idPublicacion' => $idPublicacion
+        ];
+
+        $datosPublicacion = $this->publicar->getPublicacion($idPublicacion);
+
+        if($this->publicar->rowLikes($datos)) {
+            if($this->publicar->deleteLike($datos)) {
+                $this->publicar->deleteLikeCount($datosPublicacion);
+                redirect('/home');
+            }
+        } else {
+            if($this->publicar->agregarLike($datos)) {
+                $this->publicar->addLikeCount($datosPublicacion);
+                redirect('/home');
+            }
         }
     }
 }

@@ -19,13 +19,19 @@
                 </li>
                 -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="<?php echo RUTA_PROJECT?>/usuarios">
+                        usuarios
+                        <i class="fa fa-users"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo RUTA_PROJECT?>/mensajes">
                         mensajes
                         <i class="fa fa-envelope"></i>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="<?php echo RUTA_PROJECT?>/notificaciones">
                         notificaciones
                         <i class="fa fa-bell"></i>
                     </a>

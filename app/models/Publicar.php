@@ -11,7 +11,7 @@ class Publicar
 
     public function getPublicaciones()
     {
-        $this->db->query('SELECT P.idPublicacion , P.descripcion , P.foto , P.registrado , P.numLikes , U.idUsuario , Per.fotoPerfil, Per.nombreCompleto  FROM publicaciones P
+        $this->db->query('SELECT P.idPublicacion , P.descripcion , P.foto ,P.num_likes , P.registrado , U.idUsuario , Per.fotoPerfil, Per.nombreCompleto  FROM publicaciones P
         INNER JOIN usuarios U ON U.idUsuario = P.idUsuario 
         INNER JOIN perfil Per ON Per.idUsuario = P.idUsuario');
         return $this->db->registers();
@@ -26,10 +26,11 @@ class Publicar
 
     public function guardarPublicacion($datosPublicacion)
     {
-        $this->db->query("INSERT INTO publicaciones(idUsuario, descripcion, foto, numLikes) VALUES(:idUsuario, :descripcion, :foto, 0)");
+        $this->db->query("INSERT INTO publicaciones (idUsuario, descripcion, foto, num_likes) VALUES(:idUsuario, :descripcion, :foto, 0)");
         $this->db->bind(':idUsuario', $datosPublicacion['idUsuario']);
         $this->db->bind(':descripcion', $datosPublicacion['descripcion']);
         $this->db->bind(':foto', $datosPublicacion['foto']);
+
         if($this->db->execute()) {
             return true;
         } else {
@@ -46,5 +47,73 @@ class Publicar
         } else {
             return false;
         }
+    }
+
+    public function rowLikes($datos)
+    {
+        $this->db->query("SELECT * FROM likes WHERE idUsuario = :idUsuario AND idPublicacion = :idPublicacion");
+        $this->db->bind(':idUsuario' , $datos['idUsuario']);
+        $this->db->bind(':idPublicacion' , $datos['idPublicacion']);
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
+
+    public function agregarLike($datos) 
+    {
+        $this->db->query("INSERT INTO likes (idUsuario, idPublicacion) VALUES(:idUsuario, :idPublicacion)");
+        $this->db->bind(':idUsuario', $datos['idUsuario']);
+        $this->db->bind(':idPublicacion', $datos['idPublicacion']);
+
+        if($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function deleteLike($datos)
+    {
+        $this->db->query("DELETE FROM likes WHERE idUsuario = :idUsuario AND idPublicacion = :idPublicacion");
+        $this->db->bind(':idUsuario' , $datos['idUsuario']);
+        $this->db->bind(':idPublicacion' , $datos['idPublicacion']);
+
+        if($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function addLikeCount($datos)
+    {
+        $this->db->query("UPDATE publicaciones SET num_likes = :countLike WHERE idPublicacion = :idPublicacion");
+        $this->db->bind(':countLike', ($datos->num_likes + 1));
+        $this->db->bind(':idPublicacion', $datos->idPublicacion);
+
+        if($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function deleteLikeCount($datos)
+    {
+        $this->db->query("UPDATE publicaciones SET num_likes = :countLike WHERE idPublicacion = :idPublicacion");
+        $this->db->bind(':countLike', ($datos->num_likes - 1));
+        $this->db->bind(':idPublicacion', $datos->idPublicacion);
+
+        if($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function misLikes($idUsuario) 
+    {
+        $this->db->query("SELECT * FROM likes WHERE idUsuario = :idUsuario");
+        $this->db->bind(':idUsuario', $idUsuario);
+        return $this->db->register();   
     }
 }
