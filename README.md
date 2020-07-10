@@ -14,14 +14,32 @@ destacadas además puedes **buscar** algun usuario en específico
 
 # cuenta con la funcionabilidad de
 
-* login y registro de usuarios
-* complemento de perfil
+* sistema de login y registro de usuarios
+* sistema de perfiles de usuarios
+* sistema de publicaciones
+* sistema de comentarios
+* sistema de likes
+* sistema de notificaciones
+* sistema de mensajería
+* sistema de búsqueda de usuarios
 
-**mas funcionabilidad próximamente**
+* **mas funcionabilidad próximamente**
 
 # instalacion
 
-descarga o clona el proyecto si lo has descargado descomprimelo y 
+descarga o clona el proyecto
+
+si lo deseas clonar usa el siguiente comando desde tu git bash asegurate de colocarte 
+en la carpeta de tu servidor local
+```
+git clone https://github.com/DennisMartel/RedSocial
+```
+
+Una vez clonado accede desde tu navegador
+
+**localhost/redsocial/home**
+
+si lo has descargado descomprimelo y 
 colocalo en la carpeta de tu servidor y accede a la siguiente ruta localhost/redsocial/home
 
 # imágenes del proyecto
