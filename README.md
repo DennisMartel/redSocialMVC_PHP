@@ -23,7 +23,6 @@ destacadas además puedes **buscar** algun usuario en específico
 * sistema de notificaciones
 * sistema de mensajería
 * sistema de búsqueda de usuarios
-* **mas funcionabilidad próximamente**
 
 # instalacion
 
