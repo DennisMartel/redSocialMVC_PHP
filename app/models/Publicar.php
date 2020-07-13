@@ -114,6 +114,47 @@ class Publicar
     {
         $this->db->query("SELECT * FROM likes WHERE idUsuario = :idUsuario");
         $this->db->bind(':idUsuario', $idUsuario);
-        return $this->db->register();   
+        return $this->db->registers();   
+    }
+
+    public function agregarComentario($datos)
+    {
+        $this->db->query("INSERT INTO comentarios (idUsuario, idPublicacion, comentario) VALUES(:idUsuario, :idPublicacion, :comentario)");
+        $this->db->bind(':idUsuario', $datos['idUsuario']);
+        $this->db->bind(':idPublicacion', $datos['idPublicacion']);
+        $this->db->bind(':comentario', $datos['comentario']);
+
+        if($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function getComentarios()
+    {
+        $this->db->query('SELECT C.idPublicacion , C.idUsuario , C.idComentario , C.comentario , C.registrado , P.fotoPerfil , U.usuario FROM comentarios C
+        INNER JOIN perfil P ON P.idUsuario = C.idusuario
+        INNER JOIN usuarios U ON U.idusuario = C.idusuario');
+        return $this->db->registers();
+ 
+    }
+
+    public function getComentario($idComentario)
+    {
+        $this->db->query("SELECT * FROM comentarios WHERE idComentario = :idComentario");
+        $this->db->bind(':idComentario', $idComentario);
+        return $this->db->register();
+    }
+
+    public function deleteComentario($comentario)
+    {
+        $this->db->query("DELETE FROM comentarios WHERE idComentario = :idComentario");
+        $this->db->bind(':idComentario', $comentario->idComentario);
+        if($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

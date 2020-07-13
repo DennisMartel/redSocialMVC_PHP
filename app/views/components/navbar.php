@@ -46,7 +46,7 @@
                             <?php echo ucwords($_SESSION['usuario']);?>
                         </button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">perfil</a>
+                            <a class="dropdown-item" href="<?php echo RUTA_PROJECT?>/perfil/<?php echo $data['usuario']->usuario . '/' . $data['usuario']->idUsuario?>">perfil</a>
                             <a class="dropdown-item" href="<?php echo RUTA_PROJECT?>/home/logout">cerrar sesion</a>
                         </div>
                     </div>

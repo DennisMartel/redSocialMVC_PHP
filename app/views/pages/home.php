@@ -12,7 +12,7 @@
                     </div>
                     <div class="profile-card__separation"></div>
                 </div>
-                <a href="" class="nav-link">
+                <a href="<?php echo RUTA_PROJECT?>/perfil/<?php echo $data['usuario']->usuario . '/' . $data['usuario']->idUsuario?>" class="nav-link">
                     <p class="profile-card__name"><?php echo $data['perfil']->nombreCompleto ?></p>
                 </a>
                 <div class="profile-cards__stadistics">
@@ -50,38 +50,46 @@
                         <img src="<?php echo RUTA_PROJECT . '/' . $datosPublicacion->foto ?>" alt="" class="main-publicaciones__img-publicacion">
                     </div>
                     <div class="main-publicaciones__btn-like">
-                        <a href="<?php echo RUTA_PROJECT ?>/publicacion/megusta/<?php echo $_SESSION['logueado'] . '/' .  $datosPublicacion->idPublicacion ?>" class="main-publicaciones__link nav-link">
-                            <i class="fa fa-heart-o"></i> me gusta
+                        <a href="<?php echo RUTA_PROJECT ?>/publicacion/megusta/<?php echo $_SESSION['logueado'] . '/' .  $datosPublicacion->idPublicacion ?>" class="main-publicaciones__link nav-link" style="
+                        <?php 
+                        foreach($data['likes'] as $datosLike) :
+                            if($datosLike->idPublicacion == $datosPublicacion->idPublicacion):
+                                echo 'color: red';
+                            endif;
+                        endforeach;
+                        ?>
+                        ">
+                            <i class="fa fa-heart"></i>
                             <span><?php echo $datosPublicacion->num_likes?></span>
                         </a>
                     </div>
                     <div class="main-publicaciones__comentar">
-                        <form action="" method="post" class="main-publicaciones__form-comentar">
-                            <textarea name="descripcion" class="main-publicacion__comentar" placeholder="¿Que piensas sobre la publicacion?"></textarea>
+                        <form action="<?php echo RUTA_PROJECT?>/publicacion/comentar" method="post" class="main-publicaciones__form-comentar">
+                            <input type="hidden" name="idUsuario" value="<?php echo $_SESSION['logueado']?>">
+                            <input type="hidden" name="idPublicacion" value="<?php echo $datosPublicacion->idPublicacion?>">
+                            <textarea name="comentario" class="main-publicacion__comentar" placeholder="¿Que piensas sobre la publicacion?"></textarea>
                             <button type="submit" class="main-publicacion__btn-comentar">agregar comentario</button>
                         </form>
                     </div>
-                    <div class="main-publicaciones__mis-comentarios">
-                        <img src="<?php echo RUTA_PROJECT . '/' . $data['perfil']->fotoPerfil ?>" alt="" class="main_publicaciones__foto-pertenece">
+                    <?php foreach ($data['comentarios'] as $datosComentario) : ?>
+                    <?php if($datosComentario->idPublicacion == $datosPublicacion->idPublicacion) :?>
+                        <div class="main-publicaciones__mis-comentarios">
+                        <img src="<?php echo RUTA_PROJECT . '/' . $datosComentario->fotoPerfil ?>" alt="" class="main_publicaciones__foto-pertenece">
                         <div class="main-publicaciones__responsable">
-                            <h6 class="main-publicaciones__nombre-pertenece"><?php echo $data['perfil']->nombreCompleto ?>
+                            <h6 class="main-publicaciones__nombre-pertenece"><?php echo $datosComentario->usuario ?>
                             </h6>
-                            <p class="main_publicaciones__comentario-pertenece">Lorem ipsum, dolor sit amet consectetur
-                                adipisicing elit. Dolor, veritatis? Possimus facere molestias inventore numquam nemo illo,
-                                dolore quo sed autem nobis facilis eius placeat. Qui nam at accusantium odit!</p>
+                            <p class="main_publicaciones__comentario-pertenece"><?php echo $datosComentario->comentario?></p>
                         </div>
-                    </div>
-                    <hr>
-                    <div class="main-publicaciones__mis-comentarios">
-                        <img src="<?php echo RUTA_PROJECT . '/' . $data['perfil']->fotoPerfil ?>" alt="" class="main_publicaciones__foto-pertenece">
-                        <div class="main-publicaciones__responsable">
-                            <h6 class="main-publicaciones__nombre-pertenece"><?php echo $data['perfil']->nombreCompleto ?>
-                            </h6>
-                            <p class="main_publicaciones__comentario-pertenece">Lorem ipsum, dolor sit amet consectetur
-                                adipisicing elit. Dolor, veritatis? Possimus facere molestias inventore numquam nemo illo,
-                                dolore quo sed autem nobis facilis eius placeat. Qui nam at accusantium odit!</p>
+                        <div class="main-publicaciones__actions">
+                            <h6 class="main-publicaciones__actions-date"><?php echo $datosComentario->registrado?></h6>
+                            <?php if ($datosComentario->idUsuario == $_SESSION['logueado']) : ?>
+                                <a href="<?php echo RUTA_PROJECT?>/publicacion/eliminarComentario/<?php echo $datosComentario->idComentario?>" class="main-publicaciones__actions-delete"><i class="fa fa-trash"></i></a>
+                            <?php endif; ?>
                         </div>
+                        <hr>
                     </div>
+                    <?php endif; ?>
+                    <?php endforeach; ?>
                 </section>
             <?php endforeach; ?>
         </div>
