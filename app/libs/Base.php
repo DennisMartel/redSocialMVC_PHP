@@ -1,5 +1,5 @@
 <?php
-    //ini_set('error_reporting', 0);
+    //error_reporting(0);
     session_start();
     class Base {
         private $host = DB_HOST;

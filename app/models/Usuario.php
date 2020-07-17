@@ -16,6 +16,12 @@ class Usuario
         return $this->db->register();
     }
 
+    public function getUsuarios()
+    {
+        $this->db->query("SELECT * FROM usuarios");
+        return $this->db->registers();
+    }
+
     public function verificarContrasena($datosUsuario, $contrasena)
     {
         if(password_verify($contrasena, @$datosUsuario->contrasena)) {
@@ -56,5 +62,14 @@ class Usuario
         } else {
             return false;
         }
+    }
+
+    public function buscar($busqueda)
+    {
+        $this->db->query('SELECT U.usuario , P.fotoPerfil , P.nombreCompleto FROM usuarios U
+        INNER JOIN perfil P ON P.idUsuario = U.idUsuario
+        WHERE U.usuario LIKE :buscar ');
+        $this->db->bind(':buscar' , $busqueda);
+        return $this->db->registers();
     }
 }

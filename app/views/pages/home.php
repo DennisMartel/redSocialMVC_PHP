@@ -12,7 +12,7 @@
                     </div>
                     <div class="profile-card__separation"></div>
                 </div>
-                <a href="<?php echo RUTA_PROJECT?>/perfil/<?php echo $data['usuario']->usuario . '/' . $data['usuario']->idUsuario?>" class="nav-link">
+                <a href="<?php echo RUTA_PROJECT?>/perfil/<?php echo $data['usuario']->usuario?>" class="nav-link">
                     <p class="profile-card__name"><?php echo $data['perfil']->nombreCompleto ?></p>
                 </a>
                 <div class="profile-cards__stadistics">
@@ -50,7 +50,7 @@
                         <img src="<?php echo RUTA_PROJECT . '/' . $datosPublicacion->foto ?>" alt="" class="main-publicaciones__img-publicacion">
                     </div>
                     <div class="main-publicaciones__btn-like">
-                        <a href="<?php echo RUTA_PROJECT ?>/publicacion/megusta/<?php echo $_SESSION['logueado'] . '/' .  $datosPublicacion->idPublicacion ?>" class="main-publicaciones__link nav-link" style="
+                        <a href="<?php echo RUTA_PROJECT ?>/publicacion/megusta/<?php echo $_SESSION['logueado'] . '/' .  $datosPublicacion->idPublicacion . '/' . $datosPublicacion->idUsuario ?>" class="main-publicaciones__link nav-link" style="
                         <?php 
                         foreach($data['likes'] as $datosLike) :
                             if($datosLike->idPublicacion == $datosPublicacion->idPublicacion):
@@ -67,6 +67,7 @@
                         <form action="<?php echo RUTA_PROJECT?>/publicacion/comentar" method="post" class="main-publicaciones__form-comentar">
                             <input type="hidden" name="idUsuario" value="<?php echo $_SESSION['logueado']?>">
                             <input type="hidden" name="idPublicacion" value="<?php echo $datosPublicacion->idPublicacion?>">
+                            <input type="hidden" name="idUsuarioAccion" value="<?php echo $datosPublicacion->idUsuario?>">
                             <textarea name="comentario" class="main-publicacion__comentar" placeholder="¿Que piensas sobre la publicacion?"></textarea>
                             <button type="submit" class="main-publicacion__btn-comentar">agregar comentario</button>
                         </form>
@@ -86,7 +87,6 @@
                                 <a href="<?php echo RUTA_PROJECT?>/publicacion/eliminarComentario/<?php echo $datosComentario->idComentario?>" class="main-publicaciones__actions-delete"><i class="fa fa-trash"></i></a>
                             <?php endif; ?>
                         </div>
-                        <hr>
                     </div>
                     <?php endif; ?>
                     <?php endforeach; ?>

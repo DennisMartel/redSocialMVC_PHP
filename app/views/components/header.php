@@ -13,5 +13,7 @@
     <!-- mis estilos -->
     <link rel="stylesheet" href="<?php echo RUTA_PROJECT?>/css/style.css">
     <link rel="stylesheet" href="<?php echo RUTA_PROJECT?>/css/home.css">
+    <link rel="stylesheet" href="<?php echo RUTA_PROJECT?>/css/profile.css">
+    <link rel="stylesheet" href="<?php echo RUTA_PROJECT?>/css/busqueda.css">
 </head>
 <body>

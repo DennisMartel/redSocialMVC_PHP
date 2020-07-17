@@ -16,6 +16,7 @@ class Home extends Controller
            $datosPublicacion = $this->publicar->getPublicaciones();
            $datosLike = $this->publicar->misLikes($_SESSION['logueado']);
            $datosComentarios = $this->publicar->getComentarios();
+           $misNotificaciones = $this->publicar->getNotificaciones($_SESSION['logueado']);
 
             if($datosPerfil) {
                 $datosRed = [
@@ -23,7 +24,8 @@ class Home extends Controller
                     'perfil' => $datosPerfil,
                     'publicaciones' => $datosPublicacion,
                     'likes' => $datosLike,
-                    'comentarios' => $datosComentarios
+                    'comentarios' => $datosComentarios,
+                    'notificaciones' => $misNotificaciones
                 ];
                 $this->view('pages/home', $datosRed);
             } else {
@@ -128,6 +130,37 @@ class Home extends Controller
             } else {
                 $this->view('pages/perfil/completarPerfil');
             }
+        }
+    }
+
+    public function buscar()
+    {
+        if(isset($_SESSION['logueado'])) {
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $buscar = '%' . trim($_POST['buscar']) . '%';
+                $busqueda = $this->usuario->buscar($buscar);
+
+                $datosUsuario = $this->usuario->getUsuario($_SESSION['usuario']);
+                $datosPerfil = $this->usuario->getPerfil($_SESSION['logueado']);
+                $misNotificaciones = $this->publicar->getNotificaciones($_SESSION['logueado']);
+
+                if($datosPerfil) {
+                    $datos = [
+                        'usuario' => $datosUsuario,
+                        'perfil' => $datosPerfil,
+                        'notificaciones' => $misNotificaciones,
+                        'busqueda' => $busqueda
+                    ];
+
+                    $this->view('pages/busqueda/busqueda', $datos);
+                } else {
+                    redirect('/home');
+                }
+            } else {
+                redirect('/home');
+            }
+        } else {
+            redirect('/home');
         }
     }
 }

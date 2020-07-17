@@ -157,4 +157,46 @@ class Publicar
             return false;
         }
     }
+
+    public function addNotificationLike($datos)
+    {
+        $this->db->query("INSERT INTO notificaciones (idUsuario, idUsuarioAccion, idTipoNotificacion) VALUES(:idUsuario, :idUsuarioAccion, 1)");
+        $this->db->bind(':idUsuario', $datos['idUsuarioAccion']);
+        $this->db->bind(':idUsuarioAccion', $datos['idUsuario']);
+
+        if($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function addNotificationComment($datos)
+    {
+        $this->db->query("INSERT INTO notificaciones (idUsuario, idUsuarioAccion, idTipoNotificacion) VALUES(:idUsuario, :idUsuarioAccion, 2)");
+        $this->db->bind(':idUsuario', $datos['idUsuarioAccion']);
+        $this->db->bind(':idUsuarioAccion', $datos['idUsuario']);
+
+        if($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function getNotificaciones($id)
+    {
+        $this->db->query("SELECT * FROM notificaciones WHERE idUsuario = :idUsuario");
+        $this->db->bind('idUsuario' , $id);
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
+
+    public function getMensajes($id)
+    {
+        $this->db->query("SELECT * FROM mensajes WHERE idUsuario = :idUsuario");
+        $this->db->bind('idUsuario' , $id);
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
 }

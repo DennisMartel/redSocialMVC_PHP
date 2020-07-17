@@ -1,0 +1,18 @@
+.image-big-user {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.elemento-usuario-registrado {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+.nombre-usuario-registrado a {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 20px;
+}
